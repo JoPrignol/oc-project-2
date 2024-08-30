@@ -1,0 +1,137 @@
+::ng-deep ngx-charts-line-chart .line {
+  stroke-width: 3px;
+}
+
+::ng-deep ngx-charts-line-chart g[ngx-charts-axis-label] text {
+  font-size: 1.3rem !important;
+  fill: grey !important;
+}
+
+::ng-deep ngx-tooltip-content.ngx-charts-tooltip-content.type-tooltip {
+  .tooltip-caret.position-top {
+    border-top-color: #00838E;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  font-size: 1rem;
+  font-weight: 300;
+  background-color: #00838E;
+  color: white;
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+a{
+  text-decoration: none;
+}
+
+.banner{
+  display: flex;
+  justify-content: left;
+  width: 100%;
+}
+
+.back-button{
+  background-color: #00838E;
+  color: white;
+  font-weight: 400;
+  padding: .8rem;
+  font-size: 1.4rem;
+  border-radius: 50%;
+  transition: .3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.back-button:hover{
+  scale: 1.02;
+}
+
+ngx-charts-line-chart {
+  flex: 1;
+  width: 100%;
+  max-height: 25vh;
+  margin-top: 2rem;
+}
+
+.chart-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  height: auto;
+  max-width: 100vw;
+  max-height: 50vh;
+  margin: 0 auto;
+}
+
+ul{
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+  padding: .5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+li{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: .5rem;
+  border: 2px solid #00838E;
+  padding: .5rem 1rem .5rem 1rem;
+
+  p{
+    margin-top: .2rem;
+    margin-bottom: .2rem;
+    font-size: 1.3rem;
+    padding-inline: 1rem;
+  }
+
+  p:first-child{
+    color: grey;
+  }
+
+  p:last-child{
+    font-weight: 700;
+  }
+}
+
+
+h1{
+  background-color: #00838E;
+  color: white;
+  font-weight: 400;
+  font-style: normal;
+  padding: .5rem 1rem .5rem 1rem;
+  border-radius: .5rem;
+}
+
+@media screen and (max-width: 480px) {
+  .chart-container {
+    width: 100%;
+  }
+
+  ngx-charts-line-chart {
+    max-height: 5vh;
+  }
+
+  ul{
+    gap: 10px;
+  }
+
+  li{
+    padding: .2rem;
+    p{
+      font-size: 1rem;
+      text-align: center;
+    }
+  }
+
+}

@@ -1,0 +1,31 @@
+<div class="banner">
+  <a routerLink="/">
+    <div class="back-button">
+      <i class="fa-solid fa-arrow-left"></i>
+    </div>
+  </a>
+</div>
+<div *ngIf="isDataLoaded" class="chart-container">
+  <h1>{{ countryName }}</h1>
+  <ul>
+    <li>
+      <p>Number of entries</p>
+      <p>{{ numberOfEntries }}</p>
+    </li>
+    <li>
+      <p>Total medals</p>
+      <p>{{ totalNumberOfMedals }}</p>
+    </li>
+    <li>
+      <p>Total number of athletes</p>
+      <p>{{ totalNumberOfAthletes }}</p>
+    </li>
+  </ul>
+  <ngx-charts-line-chart
+      [results]="chartData"
+      [xAxis]="showXAxis"
+      [yAxis]="showYAxis"
+      [showXAxisLabel]="showXAxisLabel"
+      [xAxisLabel]="xAxisLabel">
+  </ngx-charts-line-chart>
+</div>

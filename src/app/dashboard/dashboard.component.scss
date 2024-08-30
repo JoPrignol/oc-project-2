@@ -1,0 +1,94 @@
+.chart-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+::ng-deep ngx-tooltip-content.ngx-charts-tooltip-content.type-tooltip {
+  .tooltip-caret.position-top {
+    border-top-color: #00838E;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  font-size: 1rem;
+  font-weight: 300;
+  background-color: #00838E;
+  color: white;
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+ul{
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+  padding-inline-start: 0px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+li{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: .5rem;
+  border: 2px solid #00838E;
+  padding: .5rem 1rem .5rem 1rem;
+
+  p{
+    margin-top: .2rem;
+    margin-bottom: .2rem;
+    width:fit-content;
+    padding-inline: 1rem;
+  }
+
+  p:first-child{
+    color: grey;
+    font-size: 1.3rem;
+  }
+
+  p:last-child{
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+}
+
+
+h1{
+  background-color: #00838E;
+  color: white;
+  font-weight: 400;
+  font-style: normal;
+  padding: .5rem 1rem .5rem 1rem;
+  border-radius: .5rem;
+}
+
+ngx-charts-pie-chart {
+  flex: 1;
+}
+
+@media screen and (max-width: 480px) {
+  .chart-container {
+    width: 100%;
+  }
+
+  ngx-charts-pie-chart {
+    max-height: 5vh;
+  }
+
+  ul{
+    gap: 10px;
+    padding-left: none !important;
+  }
+
+  li{
+    padding: .2rem;
+    p{
+      font-size: 1rem;
+      text-align: center;
+    }
+  }
+
+}
