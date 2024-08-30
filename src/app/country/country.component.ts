@@ -4,7 +4,6 @@ import { OlympicService } from '../core/services/olympic.service';
 import { Router } from '@angular/router';
 import { Olympic } from '../core/models/Olympic';
 import { ChartData } from '../core/models/ChartData';
-import { Color, ScaleType } from '@swimlane/ngx-charts';
 
 @Component({
   selector: 'app-country',
