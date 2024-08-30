@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { CountryComponent } from './country/country.component';
+import { DisconectedComponent } from './disconected/disconected.component';
 
 const routes: Routes = [
   {
@@ -13,9 +14,12 @@ const routes: Routes = [
   { path: 'country/:name',
     component: CountryComponent
   },
-
   {
-    path: '**', // wildcard
+    path: 'disconected',
+    component: DisconectedComponent,
+  },
+  {
+    path: '**',
     component: NotFoundComponent,
   },
 ];

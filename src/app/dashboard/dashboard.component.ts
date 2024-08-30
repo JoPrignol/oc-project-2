@@ -56,6 +56,6 @@ export class DashboardComponent implements OnInit {
   }
 
   customTooltipText(medal: {data : {name : string, value : number}}): string {
-    return `${medal.data.name}<br>&#x1F3C5;${medal.data.value}`
+    return `${medal.data.name}<br> <i class="fa-solid fa-medal" style="color: #ffffff;"></i>${medal.data.value}`
   }
 }

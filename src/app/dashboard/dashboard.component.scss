@@ -7,6 +7,9 @@
 }
 
 ::ng-deep ngx-tooltip-content.ngx-charts-tooltip-content.type-tooltip {
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  padding-inline: 1rem;
   .tooltip-caret.position-top {
     border-top-color: #00838E;
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.2);
