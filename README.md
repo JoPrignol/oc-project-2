@@ -47,7 +47,3 @@ Open your browser and navigate to http://localhost:4200/ to view the application
 - Home Page: Provides a summary of the number of participating countries and Olympic events.
 - Country Details: Click on a country in the dashboard to view detailed statistics, including participation by year and total medals won.
 - Error Handling: If the application detects a network issue, it will redirect to a custom disconnected page.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
