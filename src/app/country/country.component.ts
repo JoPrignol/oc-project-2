@@ -1,16 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { OlympicService } from '../core/services/olympic.service';
 import { Router } from '@angular/router';
 import { Olympic } from '../core/models/Olympic';
 import { ChartData } from '../core/models/ChartData';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-country',
   templateUrl: './country.component.html',
   styleUrl: './country.component.scss'
 })
-export class CountryComponent implements OnInit {
+export class CountryComponent implements OnInit, OnDestroy {
 
   countryName: string | null = '';
 
@@ -21,12 +22,14 @@ export class CountryComponent implements OnInit {
   totalNumberOfMedals: number = 0;
   totalNumberOfAthletes: number = 0;
 
+  private subscription: Subscription = new Subscription();
+
   constructor(private route: ActivatedRoute, private olympicService: OlympicService, private router: Router) {}
 
   ngOnInit(): void {
     this.countryName = this.route.snapshot.paramMap.get('name');
 
-    this.olympicService.getOlympics().subscribe((data:Olympic[]) => {
+    const olympicSubscription = this.olympicService.getOlympics().subscribe((data: Olympic[]) => {
 
       const countryData = data.find(element => element.country === this.countryName);
 
@@ -58,6 +61,12 @@ export class CountryComponent implements OnInit {
 
     this.isDataLoaded = true;
     });
+
+    this.subscription.add(olympicSubscription);
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   showXAxis = true;

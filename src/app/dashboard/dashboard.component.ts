@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { OlympicService } from '../core/services/olympic.service';
 import { Router } from '@angular/router';
 import { MedalsPerCountry } from '../core/models/MedalsPerCountry';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,11 +18,13 @@ export class DashboardComponent implements OnInit {
 
   isDataLoaded = false;
 
+  private subscription: Subscription = new Subscription();
+
   constructor(private olympicService: OlympicService, private router: Router) {}
 
   ngOnInit(): void {
 
-    this.olympicService.getOlympics().subscribe(data => {
+    const olympicSubscription = this.olympicService.getOlympics().subscribe(data => {
 
       this.numberOfJOs = data[0].participations.length;
       this.numberOfCountries = data.length;
@@ -39,12 +42,17 @@ export class DashboardComponent implements OnInit {
       });
       this.isDataLoaded = true;
     });
+    this.subscription.add(olympicSubscription);
   }
 
   onSelect(event: MedalsPerCountry): void {
     const countryName = event.name;
 
     this.router.navigate(['/country', countryName]);
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   customTooltipText(medal: {data : {name : string, value : number}}): string {
