@@ -46,9 +46,6 @@ export class CountryComponent implements OnInit, OnDestroy {
       );
       this.totalNumberOfAthletes = totalNumberOfAthletes ?? 0;
 
-      const yearsOfParticipation = countryData?.participations.map(participation => participation.year);
-      const numberOfMedals = countryData?.participations.map(participation => participation.medalsCount);
-
       const chartData = [{
         name: 'Medals',
         series: countryData?.participations.map((participation) => ({
