@@ -4,6 +4,8 @@
 
 This project is an Angular-based web application that displays Olympic data, including the number of medals won by different countries across various years. The application provides an interactive dashboard and detailed country views, allowing users to explore Olympic participation and achievements.
 
+This project is part of my fullstack developer course at OpenClassrooms
+
 ## Features
 
 - Home Dashboard: Displays an overview of the total number of participating countries and Olympic events.
