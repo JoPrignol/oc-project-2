@@ -26,3 +26,9 @@ node_modules/
 # Ignore system files
 .DS_Store
 Thumbs.db
+
+# Ignore Angular cache files
+/dist/
+/tmp/
+/out-tsc/
+.angular/
