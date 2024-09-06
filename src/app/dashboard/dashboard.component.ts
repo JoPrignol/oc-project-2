@@ -26,21 +26,23 @@ export class DashboardComponent implements OnInit, OnDestroy{
 
     const olympicSubscription = this.olympicService.getOlympics().subscribe(data => {
 
-      this.numberOfJOs = data[0].participations.length;
-      this.numberOfCountries = data.length;
+      if (data && data.length > 0) {
+        this.numberOfJOs = data[0].participations.length;
+        this.numberOfCountries = data.length;
 
-      data.forEach((element: {country: string, participations: Array<{medalsCount: number}>}) => {
+        data.forEach((element: {country: string, participations: Array<{medalsCount: number}>}) => {
 
-        let country = element.country;
+          let country = element.country;
 
-        let numberOfMedals = 0;
+          let numberOfMedals = 0;
 
-        element.participations.forEach((participation: {medalsCount: number}) => {
-          numberOfMedals += participation.medalsCount;
+          element.participations.forEach((participation: {medalsCount: number}) => {
+            numberOfMedals += participation.medalsCount;
+          });
+          this.medalsPerCountry.push({name: country, value: numberOfMedals});
         });
-        this.medalsPerCountry.push({name: country, value: numberOfMedals});
-      });
-      this.isDataLoaded = true;
+        this.isDataLoaded = true;
+      }
     });
     this.subscription.add(olympicSubscription);
   }

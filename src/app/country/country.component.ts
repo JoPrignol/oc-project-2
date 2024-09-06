@@ -31,32 +31,34 @@ export class CountryComponent implements OnInit, OnDestroy {
 
     const olympicSubscription = this.olympicService.getOlympics().subscribe((data: Olympic[]) => {
 
-      const countryData = data.find(element => element.country === this.countryName);
+      if (data && data.length > 0) {
+        const countryData = data.find(element => element.country === this.countryName);
 
-      const numberOfEntries = countryData?.participations.length;
-      this.numberOfEntries = numberOfEntries ?? 0;
+        const numberOfEntries = countryData?.participations.length;
+        this.numberOfEntries = numberOfEntries ?? 0;
 
-      const totalNumberOfMedals = countryData?.participations.reduce(
-        (accumulator, participation) => accumulator + participation.medalsCount, 0,
-      );
-      this.totalNumberOfMedals = totalNumberOfMedals ?? 0;
+        const totalNumberOfMedals = countryData?.participations.reduce(
+          (accumulator, participation) => accumulator + participation.medalsCount, 0,
+        );
+        this.totalNumberOfMedals = totalNumberOfMedals ?? 0;
 
-      const totalNumberOfAthletes = countryData?.participations.reduce(
-        (accumulator, participation) => accumulator + participation.athleteCount, 0,
-      );
-      this.totalNumberOfAthletes = totalNumberOfAthletes ?? 0;
+        const totalNumberOfAthletes = countryData?.participations.reduce(
+          (accumulator, participation) => accumulator + participation.athleteCount, 0,
+        );
+        this.totalNumberOfAthletes = totalNumberOfAthletes ?? 0;
 
-      const chartData = [{
-        name: 'Medals',
-        series: countryData?.participations.map((participation) => ({
-          name: participation.year.toString(),
-          value: participation.medalsCount
-        })) ?? []
-      }];
+        const chartData = [{
+          name: 'Medals',
+          series: countryData?.participations.map((participation) => ({
+            name: participation.year.toString(),
+            value: participation.medalsCount
+          })) ?? []
+        }];
 
-      this.chartData = chartData;
+        this.chartData = chartData;
 
-    this.isDataLoaded = true;
+        this.isDataLoaded = true;
+      }
     });
 
     this.subscription.add(olympicSubscription);
