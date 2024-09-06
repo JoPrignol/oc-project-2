@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
   styleUrl: './dashboard.component.scss'
 })
 
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnDestroy{
 
   medalsPerCountry: MedalsPerCountry[] = [];
   numberOfJOs: number = 0;
